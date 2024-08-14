@@ -1,0 +1,34 @@
+/* ---- Button's CSS ----- */
+
+.btn{
+    display: inline-block;
+    margin-top: 0.8rem;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    border-radius: .5rem;
+    border: var(--border);
+    cursor: pointer;
+    font-size: larger;
+    color: rgb(7, 7, 7);
+    box-shadow: var(--box-shadow);
+    background-color: #fff;
+}
+
+.btn span{
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.4rem;
+    background: var(--blue);
+    color: #fff;
+    margin: 0.4rem;
+}
+
+.btn:hover{
+    background: var(--blue);
+    color: #fff;
+}
+
+.btn:hover span{
+    color: var(--blue);
+    background: #fff;
+    margin-left: 1rem;
+}

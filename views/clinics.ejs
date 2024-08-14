@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinics</title>
+
+    <link rel="icon" type="image/x-icon" href="./images/medicare-icon.png">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Oxygen&family=Prompt:wght@300&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Some specific CSS for stylings -->
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/button.css">
+    <link rel="stylesheet" href="./css/clinics.css">
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+
+</head>
+
+<body>
+
+    <!-- header section starts -->
+    <%- include('../partials/navbar.ejs') %>
+
+        <!-- Header section ends -->
+
+        <!-- ------***** CLINICS SECTION *****------ -->
+        <section class="clinics">
+
+            <h1 class="list-heading">
+                <i class="fas fa-clone"></i>
+                Clinics <span>List</span>
+            </h1>
+
+            <div class="container">
+
+                <% for(var i=0; i < clinics.length; i++) { %>
+
+                    <div class="clinic">
+
+                        <div class="clinic-heading">
+                            <%= clinics[i].clinic_name %>
+                        </div>
+
+                        <div class="clinic-content">
+
+                            <div class="doc-name">
+                                <span><i class="fas fa-user-nurse clinic-icon"></i> Doctor : <span class="each-content">
+                                        <%= clinics[i].doctor_name %>
+                                    </span>
+                            </div>
+
+                            <div class="phone-number">
+                                <span><i class="fas fa-phone clinic-icon"></i> Phone Number : <span
+                                        class="each-content">
+                                        <%= clinics[i].phone_number %>
+                                    </span></span>
+                            </div>
+
+                            <div class="address">
+                                <span><i class="fas fa-clinic-medical clinic-icon"></i> Address : <span
+                                        class="each-content">
+                                        <%= clinics[i].address %>
+                                    </span></span>
+                            </div>
+
+                            <div class="close-day">
+                                <span><i class="fas fa-window-close clinic-icon"></i> Closed On : <span
+                                        class="each-content">
+                                        <%= clinics[i].days + " " %>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <form action='/clinics/delete/<%= clinics[i]._id %>' method="post">
+
+                            <button type="submit" class="btn">Remove <span class="fas fa-trash-alt"></span></button>
+
+                        </form>
+                    </div>
+
+                    <% } %>
+
+            </div>
+
+            <div id="clinic-image">
+                <img src="./images/add files.svg" alt="">
+
+                <span>
+                    <a href="/clinicadd">
+                        <button class="btn addclinicbtn">
+                            Add New Clinic <span class="fas fa-angle-double-right"></span>
+                        </button>
+                    </a>
+                </span>
+            </div>
+        </section>
+
+        <script src="./js/swiper-bundle.min.js"></script>
+
+        <script>
+
+            const removeItem = (e) => {
+                e.preventDefault()
+                console.log(e)
+                console.log('Clicked')
+            }
+
+
+            var swiper = new Swiper(".slide-content", {
+                slidesPerView: 2,
+                spaceBetween: 30,
+                loop: true,
+                centreSlide: true,
+                grabCursor: true,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                    dynamicBullets: true
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+
+                breakpoints: {
+                    0: {
+                        slidesPerView: 1,
+                    },
+                    995: {
+                        slidesPerView: 2,
+                    },
+                    1388: {
+                        slidesPerView: 3,
+                    },
+                },
+            });
+        </script>
+</body>
+
+</html>

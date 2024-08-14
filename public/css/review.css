@@ -1,0 +1,77 @@
+/* -----**** Review Section ****----- */
+
+.slide-container {
+    width: 100%;
+    padding-bottom: 2.2rem;
+}
+
+.slide-content {
+    margin: 0 1.5rem;
+    overflow: hidden;
+    padding: 1.5rem;
+}
+
+.review .box {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    border: var(--border);
+    box-shadow: var(--skill-box-shadow);
+    border-radius: 1rem;
+    padding: 3rem;
+}
+
+.review .box:hover {
+    color: var(--blue);
+    box-shadow: rgba(132, 91, 235, 0.716) 0px 13px 27px, rgba(123, 85, 221, 0.668) 0px 13px 9px;
+    scale: 1.05;
+}
+
+.review .box h3 {
+    font-size: 2.1rem;
+    padding: 1.1rem;
+}
+
+.review .box>div{
+    margin: 0.8rem;
+}
+
+.review .box .image img {
+    height: 20rem;
+    width: 20rem;
+    border-radius: 2rem;
+}
+
+.review .box .skill-content {
+    letter-spacing: 0.1rem;
+    text-align: justify;
+}
+
+.review .box .skill-content .tech {
+    text-align: left;
+}
+
+.swiper-button {
+    color: var(--dark-violet);
+}
+
+.swiper-button:hover {
+    color: var(--blue);
+}
+
+.swiper-pagination-bullet {
+    background-color: var(--black);
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--dark-violet);
+}
+
+.swiper-button-next::after {
+    margin-left: 1.5rem;
+}
+
+.swiper-button-prev::after {
+    margin-right: 1.5rem;
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Clinic</title>
+
+    <link rel="icon" type="image/x-icon" href="./images/medicare-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Oxygen&family=Prompt:wght@300&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- SWEET ALERT STYLE SHEET -->
+    <link rel="stylesheet" href="sweetalert2.min.css">
+
+    <!-- Some specific CSS for stylings -->
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/button.css">
+    <link rel="stylesheet" href="./css/clinicadd.css">
+
+</head>
+
+<body>
+    <!-- header section starts -->
+    <%- include('../partials/navbar.ejs') -%>
+
+        <!-- Header section ends -->
+
+        <section class="book" id="book">
+
+            <h3 class="heading"> <span> <i class="fas fa-briefcase-medical"></i> Add</span> Clinic</h3>
+
+            <div class="row">
+
+                <form action="/clinicadd" method="POST" onsubmit="firemsg()">
+
+                    <h3 class="heading close-day-heading">
+                        <i class="fas fa-pen-alt"></i>
+                        Enter Cli<span>nic Details</span>
+                    </h3>
+
+                    <input type="text" name="clinic_name" placeholder="Enter Clinic's Name" class="box">
+
+                    <input type="text" name="doctor_name" placeholder="Enter Doctor's Name" class="box">
+
+                    <input type="text" name="phone_number" placeholder="Enter Phone Number" class="box">
+
+                    <input type="text" name="address" placeholder="Enter Address" class="box">
+
+                    <h4 class="heading close-day-heading">Closed <span>On</span></h4>
+
+                    <div class="days">
+
+                        <div class="each-day-input">
+                            <input type="checkbox" id="sunday" name="days" value="Sunday">
+                            <label for="sunday">Sunday</label>
+                        </div>
+
+                        <div class="each-day-input">
+                            <input type="checkbox" id="monday" name="days" value="Monday">
+                            <label for="monday">Monday</label>
+                        </div>
+
+                        <div class="each-day-input">
+                            <input type="checkbox" id="tuesday" name="days" value="Tuesday">
+                            <label for="tuesday">Tuesday</label>
+                        </div>
+
+                        <div class="each-day-input">
+                            <input type="checkbox" id="wednesday" name="days" value="Wednesday">
+                            <label for="wednesday">Wednesday</label>
+                        </div>
+
+                        <div class="each-day-input">
+                            <input type="checkbox" id="sunday" name="days" value="Thursday">
+                            <label for="thursday">Thursday</label>
+                        </div>
+
+                        <div class="each-day-input">
+                            <input type="checkbox" id="sunday" name="days" value="Friday">
+                            <label for="friday">Friday</label>
+                        </div>
+
+                        <div class="each-day-input">
+                            <input type="checkbox" id="sunday" name="days" value="Saturday">
+                            <label for="saturday">Saturday</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn" onclick="firemsg()">Submit <span
+                            class="fas fa-angle-double-right"></span></button>
+
+                </form>
+            </div>
+
+        </section>
+
+        <!-- Sweet Alert CDN -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="sweetalert2.min.js"></script>
+
+        <script>
+
+            const Toast = Swal.mixin({
+                toast: true,
+                iconColor: 'white',
+                position: 'top-end',
+                showConfirmButton: false,
+                customClass: {
+                    popup: 'colored-toast'
+                },
+                timer: 5000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            const firemsg = () => {
+
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Added successfully'
+                })
+            }
+
+        </script>
+
+</body>
+
+</html>

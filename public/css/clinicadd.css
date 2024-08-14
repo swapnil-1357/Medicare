@@ -1,0 +1,178 @@
+:root{
+    --black: #444;
+    --light-color: #777;
+    --box-shadow: 0.5rem 0.5rem 0 rgba(88, 42, 149, 0.2);
+    --text-shadow: 0.3rem 0.3rem 0 rgb(199, 199, 199);
+    --border: 0.2rem solid var(--blue);
+    --blue:#0cbd32d9;
+}
+
+*{
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+section{
+    padding: 2rem 5%;
+}
+
+.colored-toast.swal2-icon-success {
+    background-color: var(--blue) !important;
+}
+
+.swal2-styled.swal2-confirm {
+    background-color: var(--blue) !important;
+}
+
+.colored-toast .swal2-title {
+    color: white;
+}
+
+.colored-toast .swal2-close {
+    color: white;
+}
+
+.colored-toast .swal2-html-container {
+    color: white;
+}
+
+
+/* ----****** Ultimate CSS starts now *****---- */
+
+.heading{
+    text-align: center;
+    text-shadow: var(--text-shadow);
+    color: var(--black);
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+}
+
+.heading span{
+    color: var(--blue);
+    text-transform: capitalize;
+}
+
+
+#menu-btn{
+    font-size: 2.5rem;
+    border-radius: .5rem;
+    background: #eee;
+    color:var(--green);
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+
+/* ***** Booking section CSS ***** */
+
+.book{
+    padding-top: 10rem;
+}
+
+.book .row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.book .row form{
+    flex: 1 1 20rem;
+    background: #fff;
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    padding: 2rem 1.3rem 1.3rem 1.3rem;
+    border-radius: 0.8rem;
+    margin-top: 1.1rem;
+}
+
+.book .row form h3{
+    padding-bottom: 0.8rem;
+    font-size: 2rem;
+    text-shadow: 0.1rem 0.1rem 0 rgb(199, 199, 199);
+}
+
+.book .row form .box{
+    border-radius: 0.5rem;
+    width: 100%;
+    margin: 0.4rem 0;
+    border: var(--border);
+    font-size: 1.1rem;
+    padding: 1.1rem;
+    color: var(--black);
+    outline: none;
+}
+
+.book .row form label{
+    display: table;
+}
+
+.book .row form .boxfill{
+    background-color: #737be9;
+    color: #fff;
+}
+
+.book .row form .boxfill:hover{
+    background-color: rgb(213, 213, 213);
+    color: #666fef;
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}
+
+.book .row .close-day-heading{
+    font-size: 2.2rem;
+    margin-bottom: 0;
+    padding-bottom: 1rem;
+    text-shadow: none;
+    letter-spacing: 0;
+}
+
+textarea{
+    resize: none;
+}
+
+.book .row form .btn{
+    padding: 0.4rem 0.75rem;
+}
+
+
+.book .row form .days{
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border: var(--border);
+    padding: 0.5rem 0;
+    border-radius: 0.5rem;
+}
+
+.book .row form .days .each-day-input{
+    margin: 0.5rem 0.2rem;
+    display: flex;
+}
+
+.book .row form .days .each-day-input input{
+    height: 1.2rem;
+    width: 1.2rem;
+    margin: 0 0.5rem;
+    /* display: inline-block; */
+}
+
+
+.book .row form .days .each-day-input input:hover{
+    color: #777;
+    cursor: pointer;
+}
+
+.book .row form .days label{
+    font-size: 1.1rem;
+    color: var(--black);
+}

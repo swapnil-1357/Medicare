@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>Dashboard</title>
+
+    <link rel="icon" type="image/x-icon" href="./images/medicare-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Oxygen&family=Prompt:wght@300&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+    <!-- **** Adding Some CSS for specific work **** -->
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/button.css">
+    <link rel="stylesheet" href="./css/dashboard.css">
+
+    <link rel="stylesheet" href="./css/clinics.css">
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+</head>
+
+<body>
+    <!-- -----*** NAVBAR SECTION STARTS HERE *****------- -->
+
+    <%- include('../partials/navbar.ejs') %>
+
+        <!-- ********** NAVBAR ENDS **********-->
+
+
+        <!-- ----***** Documents Section  *****---- -->
+
+        <section class="documents-container" id="mydocs">
+
+            <div class="documents">
+
+                <h1 class="heading">
+                    <i class="fas fa-folder-open"></i>
+                    My <span>Documents</span>
+                </h1>
+
+                <% for(var i=0; i < documents.length; i++) { %>
+
+                    <div class="box">
+
+                        <div class="image-heading">
+
+                            <div>
+                                <h3>Dr. <%= documents[i].docName %>
+                                </h3>
+                                <p> Date : <%= moment(documents[i].visitDate).format('DD MMMM YYYY') %>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="document-description">
+
+                            <p>
+                                <%= documents[i].description %>
+                            </p>
+
+                            <div class="forms">
+
+                                <form action='/docs/<%= documents[i]._id %>' method="get">
+
+                                    <button type="submit" class="btn">Prescription <span
+                                            class="fas fa-image button-icon"></span>
+                                    </button>
+
+                                </form>
+
+                                <form action='/docs/delete/<%= documents[i]._id %>' method="post">
+
+                                    <button type="submit" class="btn">Remove <span
+                                            class="fas fa-trash-alt button-icon"></span>
+                                    </button>
+
+                                </form>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <% } %>
+
+
+                        <div class="image" id="document-image">
+                            <img src="./images/add docs.svg" alt="">
+
+                            <span>
+                                <a href="/docadd" target="_blank">
+                                    <button class="btn">
+                                        Add Document <span class="fas fa-angle-double-right"></span>
+                                    </button>
+                                </a>
+                            </span>
+                        </div>
+
+            </div>
+
+        </section>
+
+        </div>
+
+        </div>
+
+        <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+        <script>
+
+            const nav = document.querySelector(".nav"),
+                navOpenBtn = document.querySelector(".navOpenBtn"),
+                navCloseBtn = document.querySelector(".navCloseBtn");
+
+
+            navOpenBtn.addEventListener("click", () => {
+                nav.classList.add("openNav");
+            });
+
+
+            navCloseBtn.addEventListener("click", () => {
+                nav.classList.remove("openNav");
+            });
+
+        </script>
+</body>
+
+</html>
